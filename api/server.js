@@ -1,11 +1,13 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors');
 
 const app = express();
 const analytics = require('./src/routes/analytic')
 
 //Bodyparer Middleware
 app.use(express.json());
+app.use(cors());
 
 //Db Config
 const uri = require('./src/config/keys').mongoURI;
