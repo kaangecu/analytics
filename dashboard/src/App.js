@@ -1,4 +1,5 @@
 import "./App.css";
+import React, { useContext, useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar/index";
@@ -10,11 +11,15 @@ import {getAllAnalytics} from './api/analytics/index'
 
 
 function App() {
+  const [analytics, setAnalytics] = useState(null);
+  
 
-
+  useEffect(() => {
+    getAllAnalytics().then((result)=> setAnalytics(result))
+  }, [])
 
   return (
-    <AnalyticsContext.Provider value={getAllAnalytics()}>
+    <AnalyticsContext.Provider value={analytics}>
     <div className="fullheight">
       <Navbar />
       <Routes>

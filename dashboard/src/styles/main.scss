@@ -16,13 +16,30 @@ display: flex;
 
     &-main_div{
       display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     &-routes_list{
       display: flex;
-    flex-direction: column !important;
+      flex-direction: column !important;
     }
 }
 
+.charts_main_div{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+
+  &-item{
+    margin: 3em;
+  }
+}
+
+.active{
+  background-color: red;
+}
+.inactive{
+  background-color: yellow;
+}
