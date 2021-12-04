@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 const analytics = require('./src/routes/analytic')
 
-//Bodyparer Middleware
+//Bodyparser Middleware
 app.use(express.json());
 app.use(cors());
 
@@ -23,3 +23,5 @@ app.use('/api/analytics',analytics)
 const port=process.env.port || 5000;
 
 app.listen(port,()=>console.log(`Server stated on port ${port}`))
+
+module.exports = app;

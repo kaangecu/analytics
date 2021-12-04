@@ -7,23 +7,29 @@ html, body, #root, .fullheight {
 display: flex;
 }
 
+.fullwidth{
+  width: 100%;
+  margin: 0em 10em;
+}
+
 .navbar {
   width: 10em;
-    height: 100%;
+  position: fixed;
+  height: 100%;
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+
+  &-main_div{
     display: flex;
-    align-content: flex-start;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    &-main_div{
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    &-routes_list{
-      display: flex;
-      flex-direction: column !important;
-    }
+  &-routes_list{
+    display: flex;
+    flex-direction: column !important;
+  }
 }
 
 .charts_main_div{
@@ -37,9 +43,38 @@ display: flex;
   }
 }
 
+.topbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em;
+  padding: 0.5em;
+  border: solid;
+  border-color: darkslategray;
+  border-radius: 10px;
+
+  &-date_div{
+    display: flex;
+    flex-wrap: wrap;
+
+    &-item{
+      margin:1em !important
+    }
+  }
+}
+
 .active{
   background-color: red;
 }
 .inactive{
   background-color: yellow;
+}
+
+.data_table{
+  margin: 2em 4em;
+  
+  &-expanded-row{
+    padding: 0 0 0 3em!important; 
+    background-color: aliceblue;
+  }
 }

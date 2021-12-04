@@ -19,6 +19,24 @@ const CustomChart = ({ categories, data, name,className }) => {
     ],
   });
 
+  useEffect(() => {
+    setChartState({
+        options: {
+          chart: {
+            id: "line",
+          },
+          xaxis: {
+            categories: categories,
+          },
+        },
+        series: [
+          {
+            name: name,
+            data: data,
+          },
+        ],
+    })
+  }, [categories, data, name])
   // const [deneme, setDeneme] = useState({
   //   tasks: {
   //     daily: [],
@@ -66,7 +84,6 @@ const CustomChart = ({ categories, data, name,className }) => {
         type="line"
         width="500"
       />
-      {console.log(chartState)}
     </div>
   );
 };
