@@ -12,22 +12,27 @@ import { getAllAnalytics } from "./api/analytics/index";
 
 function App() {
   const [analytics, setAnalytics] = useState(null);
-  const [searchedAnalytic, setSearchedAnalytic] = useState({})
+  const [searchedAnalytic, setSearchedAnalytic] = useState({});
   const [searchedDateTimes, setSearchedDateTimes] = useState({
-    minDate:null,
-    maxDate:null,
-  })
+    minDate: null,
+    maxDate: null,
+  });
 
   useEffect(() => {
-    getAllAnalytics(searchedAnalytic,searchedDateTimes).then((result) => setAnalytics(result));
-  }, [searchedAnalytic,searchedDateTimes]);
+    getAllAnalytics(searchedAnalytic, searchedDateTimes).then((result) =>
+      setAnalytics(result)
+    );
+  }, [searchedAnalytic, searchedDateTimes]);
 
   return (
     <AnalyticsContext.Provider value={analytics}>
       <div className="fullheight">
         <Navbar />
         <div className="fullwidth">
-          <TopBar setSearchedAnalytic={setSearchedAnalytic} setSearchedDateTimes={setSearchedDateTimes}/>
+          <TopBar
+            setSearchedAnalytic={setSearchedAnalytic}
+            setSearchedDateTimes={setSearchedDateTimes}
+          />
           <Routes>
             <Route path="/" element={<ChartsPage />} />
             <Route path="/network" element={<NetworkItemsPage />} />

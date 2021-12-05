@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import DateAdapter from "@mui/lab/AdapterLuxon";
 import TextField from "@mui/material/TextField";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
@@ -12,8 +12,8 @@ const CustomDatePicker = ({ setSearchedDateTimes }) => {
   });
 
   useEffect(() => {
-    setSearchedDateTimes(values)
-  }, [setSearchedDateTimes,values])
+    setSearchedDateTimes(values);
+  }, [setSearchedDateTimes, values]);
 
   return (
     <div className="topbar-date_div">
@@ -31,8 +31,9 @@ const CustomDatePicker = ({ setSearchedDateTimes }) => {
       </button>
       <LocalizationProvider dateAdapter={DateAdapter}>
         <DateTimePicker
-          
-          renderInput={(props) => <TextField {...props} className="topbar-date_div-item"/>}
+          renderInput={(props) => (
+            <TextField {...props} className="topbar-date_div-item" />
+          )}
           label="Pick Minimum Date"
           value={values.minDate}
           onChange={(newValue) => {
@@ -41,7 +42,9 @@ const CustomDatePicker = ({ setSearchedDateTimes }) => {
           maxDateTime={DateTime.now()}
         />
         <DateTimePicker
-          renderInput={(props) => <TextField {...props} className="topbar-date_div-item"/>}
+          renderInput={(props) => (
+            <TextField {...props} className="topbar-date_div-item" />
+          )}
           label="Pick Maximum Date"
           value={values.maxDate}
           onChange={(newValue) => {

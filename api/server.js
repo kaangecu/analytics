@@ -1,27 +1,28 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const cors = require('cors');
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
 
 const app = express();
-const analytics = require('./src/routes/analytic')
+const analytics = require("./src/routes/analytic");
 
 //Bodyparser Middleware
 app.use(express.json());
 app.use(cors());
 
 //Db Config
-const uri = require('./src/config/keys').mongoURI;
+const uri = require("./src/config/keys").mongoURI;
 
 //Connect to Mongo
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-.then(()=>console.log('Connected...'))
-.catch((err)=>console.log(err))
+mongoose
+  .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("Connected..."))
+  .catch((err) => console.log(err));
 
 //Use Routes
-app.use('/api/analytics',analytics)
+app.use("/api/analytics", analytics);
 
-const port=process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
-app.listen(port,()=>console.log(`Server stated on port ${port}`))
+app.listen(port, () => console.log(`Server stated on port ${port}`));
 
 module.exports = app;

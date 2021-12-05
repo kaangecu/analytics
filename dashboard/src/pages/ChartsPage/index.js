@@ -14,24 +14,26 @@ const ChartsPage = () => {
   });
   const response = useContext(AnalyticsContext);
 
-  // console.log(response)
-
   useEffect(() => {
     const newChartData = {
       collectedAt: [],
-      domLoad:  [],
+      domLoad: [],
       fcp: [],
-      ttfb:  [],
-      windowLoad:  [],
-    }
+      ttfb: [],
+      windowLoad: [],
+    };
     response?.forEach((analytic) => {
-      newChartData.collectedAt.push(DateTime.fromISO(analytic?.collectedAt).toLocaleString(DateTime.DATETIME_SHORT))
-      newChartData.domLoad.push(analytic?.domLoad)
-      newChartData.fcp.push(analytic?.fcp)
-      newChartData.ttfb.push(analytic?.ttfb)
-      newChartData.windowLoad.push(analytic?.windowLoad)
+      newChartData.collectedAt.push(
+        DateTime.fromISO(analytic?.collectedAt).toLocaleString(
+          DateTime.DATETIME_SHORT
+        )
+      );
+      newChartData.domLoad.push(analytic?.domLoad);
+      newChartData.fcp.push(analytic?.fcp);
+      newChartData.ttfb.push(analytic?.ttfb);
+      newChartData.windowLoad.push(analytic?.windowLoad);
     });
-    setChartData(newChartData)
+    setChartData(newChartData);
   }, [response]);
 
   const chartsDiv = (
@@ -65,7 +67,15 @@ const ChartsPage = () => {
 
   return (
     <div>
-      {chartData.collectedAt.length !== 0 ? chartsDiv : <ErrorIndicator message={"We could not find data that is matching to your search parameters."}/>}
+      {chartData.collectedAt.length !== 0 ? (
+        chartsDiv
+      ) : (
+        <ErrorIndicator
+          message={
+            "We could not find data that is matching to your search parameters."
+          }
+        />
+      )}
     </div>
   );
 };

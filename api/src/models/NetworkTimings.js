@@ -1,24 +1,19 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const NetworkTimingsSchema= new Schema({
-  initiatorType:{
+const NetworkTimingsSchema = new Schema({
+  initiatorType: {
     type: String,
-    required:true
+    required: true,
   },
-  name:{
+  name: {
     type: String,
-    required:true
+    required: true,
   },
-  duration:{
+  duration: {
     type: Number,
-    required:true
+    required: true,
   },
-})
-
-// export default NetworkTimingsSchema
-// module.exports=NetworkTimings=mongoose.model('networkTimings',NetworkTimingsSchema)
+});
 
 module.exports.NetworkTimingsSchema = NetworkTimingsSchema;
-
-// module.exports.NetworkTimings = mongoose.model('networkTimings', NetworkTimingsSchema);

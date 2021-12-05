@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-//Item Model
 const { Analytic } = require("../models/Analytic");
 
 // @route GET api/analytics
@@ -40,21 +39,22 @@ router.get("/websiteUrls", (req, res) => {
 // @route POST api/analytics
 // @desc Create an Analytic
 // @access Public
-router.post("/", (req, res) => {
-  const newAnalytic = new Analytic({
-    //Analytic objesi düzgün çağırılmadığında boş elemanlar kaydediyor --- fazladan json gönderirsek eklemiyor(doğruOlan)
-    //buradaki reqleri teker teker vermezsek daha güzel?
-    //string olan bi alan yerine sayı verirsek onu alıp string olarak kaydediyor yine de?
-    //beklenen alan gelmediğinde hata veriyor onu uygun http ile geri döndür!
-    websiteUrl: req.body.websiteUrl,
-    collectedAt: req.body.collectedAt,
-    ttfb: req.body.ttfb,
-    fcp: req.body.fcp ? req.body.fcp : 0,
-    domLoad: req.body.domLoad,
-    windowLoad: req.body.windowLoad,
-    networkTimings: req.body.networkTimings,
-  });
-  newAnalytic.save().then((analytic) => res.json(analytic));
+router.post("/", async (req, res) => {
+  try {
+    const newAnalytic = new Analytic({
+      websiteUrl: req.body.websiteUrl,
+      collectedAt: req.body.collectedAt,
+      ttfb: req.body.ttfb,
+      fcp: req.body.fcp ? req.body.fcp : 0,
+      domLoad: req.body.domLoad,
+      windowLoad: req.body.windowLoad,
+      networkTimings: req.body.networkTimings,
+    });
+    const savedAnalytic = await newAnalytic.save();
+    res.status(200).json(savedAnalytic);
+  } catch (error) {
+    res.status(500).json(error);
+  }
 });
 
 module.exports = router;

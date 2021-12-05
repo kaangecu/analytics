@@ -7,7 +7,6 @@ import { getAllAnalyticsWebsiteUrls } from "../../api/analytics/index";
 const CustomDropdown = ({ setSearchedAnalytic }) => {
   const [urls, setUrls] = useState([]);
   const [selectedUrl, setSelectedUrl] = useState();
-  //console.log
 
   useEffect(() => {
     getAllAnalyticsWebsiteUrls().then((res) => setUrls(res));
