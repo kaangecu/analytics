@@ -17,3 +17,10 @@ jobs:
           heroku_app_name: "perfanalytics-dashboard-kg" #Must be unique in Heroku
           heroku_email: "kaangecu@gmail.com"
           usedocker: true
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          appdir: api
+          heroku_api_key: "445e2362-8e2d-4264-9ccb-a2f11b90aae3"
+          heroku_app_name: "perfanalytics-api-kg" #Must be unique in Heroku
+          heroku_email: "kaangecu@gmail.com"
+          usedocker: true
