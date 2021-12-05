@@ -17,5 +17,3 @@ jobs:
           heroku_app_name: "perfanalytics-dashboard-kg" #Must be unique in Heroku
           heroku_email: "kaangecu@gmail.com"
           usedocker: true
-        env:
-          API_URL: "https://perfanalytics-api-kg.herokuapp.com/api"
