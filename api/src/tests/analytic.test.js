@@ -28,16 +28,6 @@ describe("GET api/analytics", () => {
       expect(response.statusCode).toBe(200);
     });
   });
-
-  // describe("called with websiteUrl", () => {
-  //   test("should respond with 200", async () => {
-  //     const response = await supertest(app)
-  //       .get("/api/analytics")
-  //       .query({ websiteUrl: "www", minDate: new Date(), maxDate: new Date() });
-  //     expect(response.statusCode).toBe(200);
-  //   });
-  // });
-
 });
 
 describe("GET api/analytics/websiteUrls", () => {
