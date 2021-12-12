@@ -4,7 +4,7 @@ import CustomDatePicker from "../CustomDatePicker/index";
 
 const TopBar = ({ setSearchedAnalytic, setSearchedDateTimes }) => {
   return (
-    <div className="topbar">
+    <div id="topbar" className="topbar">
       <CustomDropdown setSearchedAnalytic={setSearchedAnalytic} />
       <CustomDatePicker setSearchedDateTimes={setSearchedDateTimes} />
     </div>
