@@ -6,7 +6,7 @@ import { getAllAnalyticsWebsiteUrls } from "../../api/analytics/index";
 
 const CustomDropdown = ({ setSearchedAnalytic }) => {
   const [urls, setUrls] = useState([]);
-  const [selectedUrl, setSelectedUrl] = useState();
+  const [selectedUrl, setSelectedUrl] = useState("");
 
   useEffect(() => {
     getAllAnalyticsWebsiteUrls().then((res) => setUrls(res));
@@ -29,7 +29,7 @@ const CustomDropdown = ({ setSearchedAnalytic }) => {
         style={{ minWidth: "100%" }}
       >
         {urls.map((url, index) => (
-          <MenuItem value={index}>{url}</MenuItem>
+          <MenuItem key={index} value={index}>{url}</MenuItem>
         ))}
       </Select>
     </div>
