@@ -44,10 +44,10 @@ router.post("/", async (req, res) => {
     const newAnalytic = new Analytic({
       websiteUrl: req.body.websiteUrl,
       collectedAt: req.body.collectedAt,
-      ttfb: req.body.ttfb,
+      ttfb: req.body.ttfb ? req.body.ttfb : 0,
       fcp: req.body.fcp ? req.body.fcp : 0,
-      domLoad: req.body.domLoad,
-      windowLoad: req.body.windowLoad,
+      domLoad: req.body.domLoad ? req.body.domLoad : 0,
+      windowLoad: req.body.windowLoad ? req.body.windowLoad : 0,
       networkTimings: req.body.networkTimings,
     });
     const savedAnalytic = await newAnalytic.save();

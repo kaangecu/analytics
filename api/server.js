@@ -7,7 +7,14 @@ const analytics = require("./src/routes/analytic");
 
 //Bodyparser Middleware
 app.use(express.json());
-app.use(cors());
+
+//Cors middleware
+const corsConfig = {
+  credentials: true,
+  origin: true,
+  methods:["POST","GET"]
+};
+app.use(cors(corsConfig));
 
 //Db Config
 const uri = require("./src/config/keys").mongoURI;
