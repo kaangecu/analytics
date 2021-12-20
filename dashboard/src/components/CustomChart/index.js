@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Chart from "react-apexcharts";
+import PropTypes from "prop-types";
 
-const CustomChart = ({ categories, data, name, className }) => {
+const CustomChart = ({ categories, data, name }) => {
   const [chartState, setChartState] = useState({
     options: {
       chart: {
@@ -39,7 +40,7 @@ const CustomChart = ({ categories, data, name, className }) => {
   }, [categories, data, name]);
 
   return (
-    <div className={className}>
+    <div className="charts_main_div-item">
       <label>{name}</label>
       <Chart
         options={chartState.options}
@@ -52,3 +53,9 @@ const CustomChart = ({ categories, data, name, className }) => {
 };
 
 export default CustomChart;
+
+CustomChart.propTypes = {
+  categories: PropTypes.array.isRequired,
+  data: PropTypes.array.isRequired,
+  name: PropTypes.string.isRequired,
+};

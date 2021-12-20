@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DateTimePicker from "@mui/lab/DateTimePicker";
 import { DateTime } from "luxon";
+import PropTypes from "prop-types";
 
 const CustomDatePicker = ({ setSearchedDateTimes }) => {
   const [values, setValues] = useState({
@@ -58,3 +59,7 @@ const CustomDatePicker = ({ setSearchedDateTimes }) => {
 };
 
 export default CustomDatePicker;
+
+CustomDatePicker.propTypes = {
+  setSearchedDateTimes:PropTypes.func.isRequired
+}

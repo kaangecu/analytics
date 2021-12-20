@@ -42,25 +42,21 @@ const ChartsPage = () => {
         categories={chartData.collectedAt}
         data={chartData.domLoad}
         name={"domLoad"}
-        className={"charts_main_div-item"}
       />
       <CustomChart
         categories={chartData.collectedAt}
         data={chartData.fcp}
         name={"fcp"}
-        className={"charts_main_div-item"}
       />
       <CustomChart
         categories={chartData.collectedAt}
         data={chartData.ttfb}
         name={"ttfb"}
-        className={"charts_main_div-item"}
       />
       <CustomChart
         categories={chartData.collectedAt}
         data={chartData.windowLoad}
         name={"windowLoad"}
-        className={"charts_main_div-item"}
       />
     </div>
   );

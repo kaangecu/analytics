@@ -7,6 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Row from "../Row/index";
+import PropTypes from "prop-types";
 
 const DataTable = ({ data }) => {
   return (
@@ -34,3 +35,7 @@ const DataTable = ({ data }) => {
 };
 
 export default DataTable;
+
+DataTable.propTypes = {
+  data:PropTypes.array.isRequired
+}

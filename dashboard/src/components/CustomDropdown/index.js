@@ -3,6 +3,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { getAllAnalyticsWebsiteUrls } from "../../api/analytics/index";
+import PropTypes from "prop-types";
 
 const CustomDropdown = ({ setSearchedAnalytic }) => {
   const [urls, setUrls] = useState([]);
@@ -37,3 +38,7 @@ const CustomDropdown = ({ setSearchedAnalytic }) => {
 };
 
 export default CustomDropdown;
+
+CustomDropdown.propTypes = {
+  setSearchedAnalytic:PropTypes.func.isRequired
+}

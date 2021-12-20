@@ -10,6 +10,7 @@ import TableRow from "@mui/material/TableRow";
 import Typography from "@mui/material/Typography";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import PropTypes from "prop-types";
 
 const Row = ({ rowData }) => {
   const [open, setOpen] = useState(false);
@@ -73,3 +74,18 @@ const Row = ({ rowData }) => {
 };
 
 export default Row;
+
+Row.propTypes = {
+  message: PropTypes.shape({
+    collectedAt: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
+    domLoad: PropTypes.number.isRequired,
+    fcp: PropTypes.number.isRequired,
+    networkTimings: PropTypes.array.isRequired,
+    ttfb: PropTypes.number.isRequired,
+    websiteUrl: PropTypes.string.isRequired,
+    windowLoad: PropTypes.number.isRequired,
+    __v: PropTypes.number.isRequired,
+    _id: PropTypes.string.isRequired,
+  }),
+};
